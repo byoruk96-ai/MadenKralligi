@@ -1,12 +1,25 @@
-function kayitOl() {
-    const user = document.getElementById('username').value;
-    const city = document.getElementById('city-select').value;
+// Şehirlerin başlangıç verileri (Bunu ileride veritabanından çekeceğiz)
+const sehirler = {
+    "istanbul": { nufus: 1200, havuz: 5000 },
+    "ankara": { nufus: 800, havuz: 3000 },
+    "izmir": { nufus: 600, havuz: 2500 }
+};
 
-    if (user === "" || city === "") {
-        alert("Lütfen tüm alanları doldurun!");
-        return;
-    }
-
-    alert(`Hoş geldin ${user}! ${city} şehri için madenlerin hazırlanıyor.`);
-    // İleride buraya veritabanı bağlantısı ekleyeceğiz.
+// Aktiflik kontrolü simülasyonu
+function aktiflikKontrol(sonGirisTarihi) {
+    const birAyOnce = new Date();
+    birAyOnce.setMonth(birAyOnce.getMonth() - 1);
+    return sonGirisTarihi > birAyOnce; 
 }
+
+// Ödül katsayısı hesaplama (Kafanda oturtamadığın yer)
+function katsayiHesapla(sehirKey) {
+    const sehir = sehirler[sehirKey];
+    // Mantık: Havuz / Nüfus (Nüfus azsa ama havuz büyükse katsayı artar)
+    let katsayi = sehir.havuz / sehir.nufus;
+    return katsayi.toFixed(2);
+}
+
+// Test için konsola yazdıralım
+console.log("İstanbul Ödül Katsayısı: " + katsayiHesapla("istanbul"));
+
