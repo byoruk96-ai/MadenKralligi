@@ -1,6 +1,6 @@
 const { createClient } = supabase;
 const SUPABASE_URL = 'https://mwssxiruwitxubniknac.supabase.co'; 
-const SUPABASE_KEY = 'KEY_BURAYA';
+const SUPABASE_KEY = 'sb_publishable_Kd1WDTpmBMFMaNO_L0e-XQ_VTIJ0sQb';
 const _supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
 // URL'den kullanıcı adını çekiyoruz (main.js'den gelen isim)
