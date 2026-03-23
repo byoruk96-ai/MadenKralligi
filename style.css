@@ -1,15 +1,23 @@
-/* Genel Sayfa Ayarları */
 body {
     background: radial-gradient(circle, #1a1a1a 0%, #000 100%);
     color: #fff;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     margin: 0;
     padding: 0;
+    width: 100vw;   /* Genişliği tam yap */
+    height: 100vh;  /* Yüksekliği tam yap */
     display: flex;
     justify-content: center;
     align-items: center;
-    min-height: 100vh;
-    text-align: center;
+    overflow: hidden; /* Gereksiz kaydırmayı engelle */
+}
+
+.container, .card {
+    /* Kartın genişliğini biraz sabitleyelim */
+    width: 85%;
+    max-width: 350px;
+    margin: auto; /* Otomatik ortala */
+    box-sizing: border-box;
 }
 
 /* Ana Kart (Kayıt ve Profil Kutusu) */
