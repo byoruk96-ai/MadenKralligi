@@ -1,5 +1,5 @@
 const { createClient } = supabase;
-const SUPABASE_URL = 'URL_BURAYA'; 
+const SUPABASE_URL = 'https://mwssxiruwitxubniknac.supabase.co'; 
 const SUPABASE_KEY = 'KEY_BURAYA';
 const _supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
 
