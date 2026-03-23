@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maden Krallığı | Giriş</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1 class="gold-text">MADEN KRALLIĞI</h1>
+            <p>Zenginliğini Seç, Şehrini Yönet</p>
+        </header>
+
+        <main id="auth-section" class="card">
+            <h2>Kayıt Ol</h2>
+            <div class="form-group">
+                <input type="text" id="username" placeholder="Kullanıcı Adı">
+                <select id="city-select">
+                    <option value="">Şehrini Seç...</option>
+                    <option value="istanbul">İstanbul</option>
+                    <option value="ankara">Ankara</option>
+                    <option value="izmir">İzmir</option>
+                </select>
+                <button onclick="kayitOl()">KRALLIĞA KATIL</button>
+            </div>
+        </main>
+    </div>
+    <script src="main.js"></script>
+</body>
+</html>
