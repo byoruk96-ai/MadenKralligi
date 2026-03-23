@@ -1,25 +1,41 @@
-// Şehirlerin başlangıç verileri (Bunu ileride veritabanından çekeceğiz)
-const sehirler = {
-    "istanbul": { nufus: 1200, havuz: 5000 },
-    "ankara": { nufus: 800, havuz: 3000 },
-    "izmir": { nufus: 600, havuz: 2500 }
-};
+// Supabase kütüphanesini başlatalım
+const { createClient } = supabase;
 
-// Aktiflik kontrolü simülasyonu
-function aktiflikKontrol(sonGirisTarihi) {
-    const birAyOnce = new Date();
-    birAyOnce.setMonth(birAyOnce.getMonth() - 1);
-    return sonGirisTarihi > birAyOnce; 
+// --- DİKKAT: BU İKİ SATIRI DEĞİŞTİRECEKSİN ---
+const SUPABASE_URL = 'https://mwssxiruwitxubniknac.supabase.co'; 
+const SUPABASE_KEY = 'sb_publishable_Kd1WDTpmBMFMaNO_L0e-XQ_VTIJ0sQb';
+// --------------------------------------------
+
+const _supabase = createClient(SUPABASE_URL, SUPABASE_KEY);
+
+async function kayitOl() {
+    // HTML'deki kutulardan verileri alıyoruz
+    const isim = document.getElementById('username').value;
+    const sehir = document.getElementById('city-select').value;
+
+    // Boş alan kontrolü
+    if (!isim || !sehir) {
+        alert("Lütfen bir isim yazın ve şehir seçin!");
+        return;
+    }
+
+    // Supabase'deki 'kullanicilar' tablosuna veri ekleme
+    const { data, error } = await _supabase
+        .from('kullanicilar')
+        .insert([
+            { 
+                username: isim, 
+                city: sehir, 
+                maden_bakiyesi: 0 
+                // son_giris otomatik dolacak (now() demiştik)
+            }
+        ]);
+
+    if (error) {
+        console.error("Hata detayı:", error);
+        alert("Bir hata oluştu: " + error.message);
+    } else {
+        alert("Tebrikler " + isim + "! Krallığa başarıyla katıldın.");
+        // İleride buraya: window.location.href = "profil.html"; ekleyeceğiz.
+    }
 }
-
-// Ödül katsayısı hesaplama (Kafanda oturtamadığın yer)
-function katsayiHesapla(sehirKey) {
-    const sehir = sehirler[sehirKey];
-    // Mantık: Havuz / Nüfus (Nüfus azsa ama havuz büyükse katsayı artar)
-    let katsayi = sehir.havuz / sehir.nufus;
-    return katsayi.toFixed(2);
-}
-
-// Test için konsola yazdıralım
-console.log("İstanbul Ödül Katsayısı: " + katsayiHesapla("istanbul"));
-
