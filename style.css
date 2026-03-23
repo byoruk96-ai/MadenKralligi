@@ -3,65 +3,39 @@ body {
     color: #fff;
     font-family: 'Segoe UI', sans-serif;
     margin: 0;
-    padding: 0;
-    width: 100vw;   /* Genişliği tam yap */
-    height: 100vh;  /* Yüksekliği tam yap */
+    padding: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
-    overflow: hidden; /* Gereksiz kaydırmayı engelle */
+    min-height: 100vh;
 }
 
-.container, .card {
-    /* Kartın genişliğini biraz sabitleyelim */
-    width: 85%;
-    max-width: 350px;
-    margin: auto; /* Otomatik ortala */
-    box-sizing: border-box;
-}
-
-/* Ana Kart (Kayıt ve Profil Kutusu) */
-.container, .card {
-    background-color: rgba(25, 25, 25, 0.9);
-    padding: 40px;
-    border-radius: 15px;
-    border: 1px solid #d4af37; /* Altın rengi çerçeve */
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-    width: 90%;
-    max-width: 400px;
-}
-
-/* Başlıklar */
-h1, .gold-text {
-    color: #d4af37;
+h1 {
+    color: #d4af37; /* Altın sarısı */
     text-transform: uppercase;
-    letter-spacing: 2px;
-    margin-bottom: 20px;
-    text-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
+    letter-spacing: 3px;
+    margin-bottom: 5px;
 }
 
-/* Giriş Alanları (Input ve Select) */
-input, select {
+p { color: #aaa; margin-bottom: 30px; }
+
+input, select, button {
+    display: block;
     width: 100%;
+    max-width: 300px;
     padding: 12px;
-    margin: 10px 0;
-    border-radius: 8px;
-    border: 1px solid #444;
-    background-color: #111;
-    color: #fff;
-    box-sizing: border-box; /* Kaymayı önler */
+    margin: 10px auto;
+    border-radius: 5px;
+    border: 1px solid #333;
+    background: #111;
+    color: white;
 }
 
-/* Altın Buton Tasarımı */
 button {
-    width: 100%;
-    padding: 15px;
-    margin-top: 20px;
-    border: none;
-    border-radius: 8px;
     background: linear-gradient(45deg, #d4af37, #f2d06b);
-    color: #000;
+    color: black;
     font-weight: bold;
-    font-size: 1rem;
+    border: none;
     cursor: pointer;
-    transition: transform 0.2s,
+    box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+}
