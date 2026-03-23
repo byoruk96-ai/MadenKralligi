@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Krallık Paneli</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card">
+            <h2 id="karsilama" class="gold-text">Hoş Geldin, Kral</h2>
+            <div class="stats">
+                <p>Şehir: <span id="user-city" style="color: #d4af37;">---</span></p>
+                <h3 style="font-size: 2rem;">💰 <span id="bakiye">0</span></h3>
+            </div>
+            
+            <button onclick="madenKaz()" id="kazma-btn">MADEN KAZ (⛏️)</button>
+            <p id="mesaj" style="font-size: 0.8rem; color: #888;"></p>
+        </div>
+    </div>
+    <script src="profil.js"></script>
+</body>
+</html>
