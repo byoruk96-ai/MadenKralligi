@@ -19,9 +19,9 @@ async function kayitOl() {
         return;
     }
 
-    // Supabase'deki 'kullanıcılar' tablosuna veri ekleme
+    // Supabase'deki 'kullanicilar' tablosuna veri ekleme
     const { data, error } = await _supabase
-        .from('kullanıcılar')
+        .from('kullanicilar')
         .insert([
             { 
                 username: isim, 
