@@ -32,10 +32,16 @@ async function kayitOl() {
         ]);
 
     if (error) {
-        console.error("Hata detayı:", error);
+        console.error("Hata oluştu:", error);
         alert("Bir hata oluştu: " + error.message);
+        btn.disabled = false;
+        btn.innerText = "KRALLIĞA KATIL";
     } else {
+        // BAŞARILI!
         alert("Tebrikler " + isim + "! Krallığa başarıyla katıldın.");
-        // İleride buraya: window.location.href = "profil.html"; ekleyeceğiz.
+        
+        // ŞİMDİ YÖNLENDİRME YAPIYORUZ:
+        // Kullanıcı adını URL'ye ekliyoruz ki profil sayfasında kim olduğunu bilelim
+        window.location.href = "profil.html?user=" + encodeURIComponent(isim);
     }
 }
